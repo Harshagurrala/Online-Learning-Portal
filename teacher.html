@@ -1,0 +1,481 @@
+<html>
+ <head>
+  <title>
+   Teacher Profile
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+    body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            position: relative; /* Added to position the back button */
+        }
+        .back-button {
+            position: absolute; /* Position it absolutely */
+            top: 0px; /* Distance from the top */
+            left: 20px; /* Distance from the left */
+            background-color: transparent; /* Transparent background */
+            border: none; /* No border */
+            cursor: pointer; /* Pointer cursor */
+            color: #FFFFFF; /* White color for the arrow */
+            font-size: 24px; /* Size of the arrow */
+            
+        }
+        /* Other existing styles remain unchanged */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+            margin: 10px;
+        }
+        .profile-card {
+            background-color: #F1F3F5;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+
+            margin: 0 auto;
+            border: 1px solid #E9ECEF;
+            height: 350px;
+            position: relative;
+
+
+        }
+        .profile-card img {
+            border-radius: 8px;
+            
+        }
+        .profile-card h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .profile-card p {
+            font-size: 14px;
+            color: #6C757D;
+        }
+        .profile-card .actions {
+            margin-top: 10px;
+        }
+        .profile-card .actions button {
+            background-color: #000000;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .profile-card .actions button.share {
+            background-color: #E9ECEF;
+            color: #000000;
+        }
+        .about-me, .contact-info, .educational-background, .courses {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .about-me {
+            border: 1px solid #E9ECEF;
+        }
+        .about-me h3, .contact-info h3, .educational-background h3, .courses h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .about-me p, .contact-info p {
+            font-size: 16px;
+            color: #6C757D;
+        }
+        .about-me .tags {
+            margin-top: 10px;
+        }
+        .about-me .tags span {
+            background-color: #E9ECEF;
+            color: #000000;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin: 5px;
+            display: inline-block;
+        }
+        .contact-info .info-item {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .contact-info .info-item i {
+            margin-right: 10px;
+            color: #6C757D;
+        }
+        .educational-background .education-item {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .educational-background .education-item img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+        .educational-background .education-item .details {
+            flex: 1;
+        }
+        .educational-background .education-item .details h4 {
+            font-size: 18px;
+            margin: 0;
+        }
+        .educational-background .education-item .details p {
+            font-size: 14px;
+            color: #6C757D;
+            margin: 5px 0;
+        }
+        .educational-background .education-item .details a {
+            font-size: 14px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .courses .course-item {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .courses .course-item .details {
+            flex: 1;
+        }
+        .courses .course-item .details h4 {
+            font-size: 16px;
+            margin: 0;
+        }
+        .courses .course-item .details p {
+            font-size: 14px;
+            color: #6C757D;
+            margin: 5px 0;
+        }
+        .courses .course-item .status {
+            display: flex;
+            align-items: center;
+        }
+        .courses .course-item .status span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .courses .course-item .status .ongoing {
+            background-color: #007BFF;
+        }
+        .courses .course-item .status .start-soon {
+            background-color: #FFC107;
+        }
+        .courses .course-item .status .unavailable {
+            background-color: #6C757D;
+        }
+        .courses .course-item .price {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .courses .filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .courses .filters button {
+            background-color: #007BFF;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+  </style>
+ </head>
+ <body>
+    <button class="back-button" onclick="window.history.back();">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+   <div class="left-column">
+    <div class="profile-card">
+     <img alt="Profile picture of Theresa Flores" height="200" src="https://raw.githubusercontent.com/aitamweb/Faculty/main/2023/it/A5INT00T26.png" width="200"/>
+     <h2 >
+        Dr.H.Swapna Rekha
+        <br>Assistant Professor
+     </h2>
+     <p >
+      Senior Assistant at AITAM
+     </p>
+     <div class="actions">
+      <button>
+       Book a Class
+      </button>
+      <button class="share">
+       Share
+      </button>
+     </div>
+    </div>
+    <div class="about-me">
+     <h3>
+      About me
+     </h3>
+     <p >
+      Hello, my name is Theresa Flores. I come from Australia. I graduated from DaMi and got a PHD degree. My major is Academic Studies. I have 4 year(s) teaching experience. I have taught all subjects, many different age groups, in various schools. It is my goal to make learning engaging. My hobby(s) is/are bake. My profession is a professional.
+     </p>
+     <div class="tags">
+      <span>
+       English grammar
+      </span>
+      <span>
+       Online education
+      </span>
+      <span>
+       Pre-school education
+      </span>
+      <span>
+       Foreign languages
+      </span>
+     </div>
+    </div>
+    <div class="contact-info">
+     <h3>
+      Contact Info
+     </h3>
+     <div class="info-item">
+      <i class="fas fa-map-marker-alt">
+      </i>
+      <p>
+     srikakulam
+      </p>
+     </div>
+     <div class="info-item">
+      <i class="fas fa-envelope">
+      </i>
+      <p>
+       swapnarekha23@gmail.com
+      </p>
+     </div>
+    </div>
+   </div>
+   <div class="right-column">
+    <div class="educational-background">
+     <h3>
+      Educational Background
+     </h3>
+     <div class="education-item">
+      <img alt="University of Melbourne logo" height="50" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmGBNGuCkYxWnCZh1MgXTFEuWnnX6Qf0Y6Rg&s" width="50"/>
+      <div class="details">
+       <h4>
+        Ph. D (I.T)  Veer Surendra Sai University of
+        Technology (VSSUT), Odisha
+       </h4>
+       <p>
+        9.0 CGPA
+        (course
+        work)
+        2023
+       </p>
+       <p>
+        Sep 2007 - Aug 2012
+       </p>
+       <a href="#">
+        Show credential
+        <i class="fas fa-link">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div class="education-item">
+      <img alt="University of Sydney logo" height="50" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW_C4YBwm7jqF6jeZn0LSX2xGOpepnJBPI3Q&s" width="50"/>
+      <div class="details">
+       <h4>
+        M. Tech (CSE) AITAM, Tekkali
+        Affiliated to JNTU, Kakinada
+       </h4>
+       <p>
+        M. Tech (CSE)
+       </p>
+       <p>
+        First Class
+        with
+        Distinction
+       </p>
+       <a href="#">
+        Show credential
+        <i class="fas fa-link">
+        </i>
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="courses">
+     <div class="filters">
+      <h3>
+       Courses
+      </h3>
+      <button>
+       Sort by: All
+      </button>
+      <button>
+       Filters
+      </button>
+     </div>
+     <div class="course-item">
+      <div class="details">
+       <h4>
+        English Language Arts
+       </h4>
+       <p>
+        5GY-11-OS-008
+       </p>
+       <p>
+        9 lessons/1 month
+       </p>
+      </div>
+      <div class="status">
+       <span class="ongoing">
+       </span>
+       <p>
+        Ongoing Now
+       </p>
+      </div>
+      <div class="price">
+       $129.00
+      </div>
+     </div>
+     <div class="course-item">
+      <div class="details">
+       <h4>
+        Math
+       </h4>
+       <p>
+        10H-V7-005D-202E
+       </p>
+       <p>
+        8 lessons/3 weeks
+       </p>
+      </div>
+      <div class="status">
+       <span class="start-soon">
+       </span>
+       <p>
+        Start Soon
+       </p>
+      </div>
+      <div class="price">
+       $165.00
+      </div>
+     </div>
+     <div class="course-item">
+      <div class="details">
+       <h4>
+        Art History
+       </h4>
+       <p>
+        FQH-90K-K9915D-6A
+       </p>
+       <p>
+        10 lessons/3 weeks
+       </p>
+      </div>
+      <div class="status">
+       <span class="ongoing">
+       </span>
+       <p>
+        Ongoing Now
+       </p>
+      </div>
+      <div class="price">
+       $170.00
+      </div>
+     </div>
+     <div class="course-item">
+      <div class="details">
+       <h4>
+        Architecture
+       </h4>
+       <p>
+        FQH-90K-K9915D-6A
+       </p>
+       <p>
+        59 lessons/5 month
+       </p>
+      </div>
+      <div class="status">
+       <span class="start-soon">
+       </span>
+       <p>
+        Start Soon
+       </p>
+      </div>
+      <div class="price">
+       $300.00
+      </div>
+     </div>
+     <div class="course-item">
+      <div class="details">
+       <h4>
+        French Language
+       </h4>
+       <p>
+        FQH-90K-K9915D-6A
+       </p>
+       <p>
+        19 lessons/2 month
+       </p>
+      </div>
+      <div class="status">
+       <span class="start-soon">
+       </span>
+       <p>
+        Start Soon
+       </p>
+      </div>
+      <div class="price">
+       $200.00
+      </div>
+     </div>
+     <div class="course-item">
+      <div class="details">
+       <h4>
+        Spanish Language
+       </h4>
+       <p>
+        FQH-90K-K9915D-6A
+       </p>
+       <p>
+        27 lessons/3 month
+       </p>
+      </div>
+      <div class="status">
+       <span class="unavailable">
+       </span>
+       <p>
+        Unavailable
+       </p>
+      </div>
+      <div class="price">
+       $250.00
+      </div>
+     </div>
+    </div>
+   </div>
+
+  
+ </body>
+</html>

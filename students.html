@@ -1,0 +1,475 @@
+<html>
+ <head>
+  <title>
+   Student Portal
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+        .header {
+                 position: sticky;
+                 display: flex;
+                 justify-content: space-between;
+                 align-items: center;
+                 padding: 10px 20px;
+                 background-color: #000;
+                 width: 98%;
+                 z-index: 10;
+                 top: 0;
+                 height: 59px;
+                      
+             }
+     
+             .header .nav {
+                 display: flex;
+                 align-items: center;
+                 margin-top: 10px; 
+                
+                 
+                
+             }
+     
+             .header .nav a {
+                 color: #fff;
+                 margin-left: 8px;
+                 padding: 10px;
+                 text-decoration: none;
+             }
+             .header .nav a.nav-link {
+                     margin-left: 20px; 
+                 }
+             .header .nav .btn {
+                 background-color: #E50914;
+                 padding: 10px 20px;
+                 border-radius: 5px;
+                 color: #fff;
+                 text-decoration: none;
+             }
+             .search-bar  {
+            display: flex;
+            align-items: center;
+            background-color:#aaa9a93e;;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .search-bar input{
+            border: none;
+            background: none;
+            color: #fff;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-right: 15px;
+            outline: none;
+            width: 300px; 
+        }
+
+        .dropdown {
+                 position: relative;
+             }
+     
+             .dropdown-content {
+                 display: none;
+                 position: absolute; 
+                 left: 0; 
+                 top: 100%; 
+                 background-color: #333; 
+                 min-width: 160px; 
+                 z-index: 1; 
+             }
+     
+             .dropdown-content a {
+                 color: white;
+                 padding: 12px 16px; 
+                 text-decoration: none; 
+                 display: block; 
+             }
+     
+             .dropdown-content a:hover {
+                 background-color: #575757; 
+             }
+
+        .container {
+
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        .profile-header img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .profile-header h2 {
+            margin: 0;
+            font-size: 24px;
+            color: white;
+        }
+        .profile-header p {
+            margin: 5px 0 0;
+            color: white;
+        }
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            width: 100%;
+        }
+        .details, .education, .teachers {
+            margin-bottom: 20px;
+        }
+        .details p, .education p {
+            margin: 10px 190px;
+        }
+        img:hover{
+            transform: scale(1.1);
+            transition: 0.3s;
+            
+        }
+        .teachers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+        }
+        .teacher-card {
+            background-color: rgba(144, 144, 144, 0.23);
+            border-radius: 8px;
+            padding: 15px;
+            width: calc(33.333% - 20px);   
+            display: flex;
+            align-items: center;
+            margin-left: 6px;
+            width: 300px;     
+            height: 170px;
+            margin-top: 27px;
+        }
+        .teacher-card:hover{
+            box-shadow: 1px 1px 15px 4px #fcfcfc63;
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+        .teacher-card img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+        }
+        .teacher-card h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #c00712;
+
+        }
+        .teacher-card p {
+            margin: 5px 0 0;
+            color :white;
+            font-size: 14px;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 0;
+        }
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #888;
+            
+        }
+        .footer-column a ,strong,p {
+            color: white;
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .social a {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .social i {
+            margin-right: 10px;
+        }
+ 
+  </style>
+ </head>
+ <body>
+    <div class="header">
+        <a href="index.html"> <img alt="MasterClass Logo"  src="logo.png" style="width: 110px; height: 50px;"/></a>
+         
+         <div class="nav">
+          <div class="dropdown">
+              <button class="browse-button" style="display: flex; align-items: center; border: none; background: #333; color: #fff; padding: 16px; border-radius: 5px; cursor: pointer; outline: none; margin-right: 7px; margin-left:10px;">
+                  <span style="margin-right: 5px;">Browse</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="27" viewBox="0 0 24 24" fill="white" style="margin-left: 5px;margin-top:-7px;margin-bottom:-4px">
+                      <path d="M12 21.35l-9.74-9.74a1 1 0 011.41-1.41L12 18.54l8.33-8.34a1 1 0 011.41 1.41L12 21.35z"/>
+                  </svg>
+              </button>
+              
+              <div class="dropdown-content" style="display: none; background-color: #000000;">
+                 <div> <a style="width: 250px;" href="#">Acting & Performing Arts </a></div>
+                 <div> <a style="width: 250px;" href="#">Arts & Design </a></div>
+                 <div> <a style="width: 250px;" href="#">Business & Entrepreneurship</a></div>
+                 <div> <a style="width: 250px;" href="#"> Film & TV </a></div>
+                 <div> <a style="width: 250px;" href="#"> Food & Drink </a></div>
+                 <div> <a style="width: 250px;" href="#"> Games & Digital Media</a></div>
+                 <div> <a style="width: 250px;" href="#">Health & Wellness </a></div>
+                 <div> <a style="width: 250px;" href="#">     Music </a></div>
+                 <div> <a style="width: 250px;" href="#">Outdoor Adventures & Events</a></div>
+                 <div> <a style="width: 250px;" href="#">Science & Technology </a></div>
+                 <div> <a style="width: 250px;" href="#">Community & government </a></div>
+                 <div> <button style="text-align: center; color: white;background-color: rgba(137, 134, 134, 0.287); border-top:1;
+                 border-bottom:1 ; border-radius: 15px; padding: 15px; padding-right: 70px; padding-left: 60px; align-items: center;margin-left: 15px;">View All Categories</button></div>
+              
+                 
+              </div>
+          </div>
+          <div class="search-bar">
+             <i class="fas fa-search"></i>
+             <input placeholder="What do you want to learn today?" type="text"/>
+          </div>
+          <a style="padding-left: 0px;" class="nav-link" href="assignments.html">Assignment</a>
+          <a href="performance.html">Performance </a>
+          <a href="course.html">profile</a>
+          <a style="padding-left: 0px;" class="nav-link" href="posting.html">Post Assignment</a>
+          <a href="signup (2).html">Log In</a>
+          <a class="btn" href="signup (2).html">Sign Up</a>
+      </div>
+     </div>
+   
+  <div class="container">
+   <div class="profile-header">
+    <img alt="Profile picture of John Doe" height="100" src="rajesh.jpg" width="100"/>
+    <div>
+     <h2>
+      Rajesh
+     </h2>
+     <p>
+      Computer Science 
+     </p>
+    </div>
+   </div>
+   <div class="details">
+    <div class="section-title">
+     <h2 style="color: white;">Personal Details</h2>
+    </div>
+    <p>
+     <strong>
+      Age:
+     </strong>
+     21
+    </p>
+    <p>
+     <strong>
+      Email:
+     </strong>
+     rajesh000@gmail.com
+    </p>
+    <p>
+     <strong>
+      Phone:
+     </strong>
+     9701328156
+    </p>
+    <p>
+     <strong>
+      Address:
+     </strong>
+     1123 srikakulam
+    </p>
+   </div>
+   <div class="education">
+    <div class="section-title">
+    <h2 style="color: white;"> Education</h2>
+    </div>
+    <p>
+     <strong>
+      High School:
+     </strong>
+     aitam
+    </p>
+    <p>
+     <strong>
+      College
+     </strong>
+     aitam
+    </p>
+    <p>
+     <strong>
+      Major:
+     </strong>
+     Computer Science
+    </p>
+    <p>
+     <strong>
+      GPA:
+     </strong>
+     8.8
+    </p>
+   </div>
+   <div class="teachers">
+    <div class="section-title">
+        <h2 style="color: white;">Teacher Profiles</h2>
+    </div>
+    <div class="teacher-card">
+     <img alt="Profile picture of Dr. Bob Johnson" height="60" src="https://storage.googleapis.com/a1aa/image/V4LX1eUOjeijPksrxfExZnPHKHDzMXIo7ppOYezzOoDbcyPPB.jpg" width="60"/>
+     <div>
+      <h3>
+       Dr. Bob Johnson
+      </h3>
+      <p>
+       Associate Professor of Software Engineering
+      </p>
+      <p>
+       PhD in Software Engineering from Stanford. Specializes in software architecture and agile methodologies.
+      </p>
+     </div>
+    </div>
+    <div class="teacher-card">
+     <img alt="Profile picture of Dr. Carol Lee" height="60" src="https://storage.googleapis.com/a1aa/image/vY34c9ZNh87yNpKaqG7d4AzfI72XDVkWUQzuQbvov7NkTezTA.jpg" width="60"/>
+     <div>
+      <h3>
+       Dr. Carol Lee
+      </h3>
+      <p>
+       Lecturer in Data Science
+      </p>
+      <p>
+       MSc in Data Science from UC Berkeley. Focuses on big data analytics and visualization techniques.
+      </p>
+     </div>
+    </div>
+    <div class="teacher-card">
+     <img alt="Profile picture of Dr. David Brown" height="60" src="https://storage.googleapis.com/a1aa/image/g5nT26F373pqDByYibAoRNxaWodeAmtZq3Vn9VhmtqklTezTA.jpg" width="60"/>
+     <div>
+      <h3>
+       Dr. David Brown
+      </h3>
+      <p>
+       Professor of Cybersecurity
+      </p>
+      <p>
+       PhD in Cybersecurity from Carnegie Mellon. Research areas include network security and cryptography.
+      </p>
+     </div>
+    </div>
+    <div class="teacher-card">
+     <img alt="Profile picture of Dr. Emily White" height="60" src="https://storage.googleapis.com/a1aa/image/rK2X9i3H6j7lGhU98M1MFfwJfZnV9xfAnfTe0qPvL5s44kf8E.jpg" width="60"/>
+     <div>
+      <h3>
+       Dr. Emily White
+      </h3>
+      <p>
+       Assistant Professor of Human-Computer Interaction
+      </p>
+      <p>
+       PhD in Human-Computer Interaction from Georgia Tech. Interested in user experience design and usability testing.
+      </p>
+     </div>
+    </div>
+    <div class="teacher-card">
+     <img alt="Profile picture of Dr. Frank Green" height="60" src="https://storage.googleapis.com/a1aa/image/T4245FOFufQ9bCplG2jIhVivLfvEfdAILkRVOW7RfmXqcyPPB.jpg" width="60"/>
+     <div>
+      <h3>
+       Dr. Frank Green
+      </h3>
+      <p>
+       Senior Lecturer in Software Development
+      </p>
+      <p>
+       MSc in Software Development from Harvard. Specializes in mobile app development and cloud computing.
+      </p>
+     </div>
+    </div>
+    <div class="teacher-card">
+     <img alt="Profile picture of Dr. Alice Smith" height="60" src="https://storage.googleapis.com/a1aa/image/Z1kAebbOmE2NVqRi1ffVigMBFlJeK6heOv7b2vXc82Nm4kf8E.jpg" width="60"/>
+     <div>
+      <h3>
+       Dr. Alice Smith
+      </h3>
+      <p>
+       Professor of Computer Science
+      </p>
+      <p>
+       PhD in Artificial Intelligence from MIT. Research interests include machine learning and data science.
+      </p>
+     </div>
+    </div>
+    
+   </div>
+  </div>
+  <div class="footer">
+    <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="#">Articles</a>
+        <a href="#">Sitemap</a>
+        <a href="#">Gifts</a>
+    </div>
+    <div class="footer-column">
+        <h3>About</h3>
+       
+        <a href="#">Careers</a>
+        <a href="#">Newsroom</a>
+        <a href="#">Security</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Social Impact</a>
+        <a href="#">MasterClass at Work</a>
+        <a href="#">Support</a>
+    </div>
+    <div class="footer-column social">
+        <h3>Social</h3>
+        <a href="#"><i class="fab fa-twitter"></i>Twitter</a>
+        <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
+        <a href="#"><i class="fab fa-facebook"></i>Facebook</a>
+        <a href="#"><i class="fab fa-youtube"></i>YouTube</a>
+        <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
+    </div>
+</div>
+<script>
+     
+     function toggleDropdown() {
+             const dropdownContent = document.querySelector('.dropdown-content');
+             dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+         }
+     
+         
+         document.querySelector('.browse-button').addEventListener('click', toggleDropdown);
+     
+         
+         window.onclick = function(event) {
+             if (!event.target.matches('.browse-button') && !event.target.closest('.dropdown')) {
+                 const dropdowns = document.getElementsByClassName("dropdown-content");
+                 for (let i = 0; i < dropdowns.length; i++) {
+                     const openDropdown = dropdowns[i];
+                     if (openDropdown.style.display === 'block') {
+                         openDropdown.style.display = 'none';
+                     }
+                 }
+             }
+         }
+</script>
+ </body>
+</html>

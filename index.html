@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        body {
+                 margin: 0;
+                 font-family: 'Roboto', sans-serif;
+                 background-color: #000;
+                 color: #fff;
+              }
+             .header {
+                 position: fixed;
+                 display: flex;
+                 justify-content: space-between;
+                 align-items: center;
+                 padding: 10px 20px;
+                 background-color: #000;
+                 width: 98%;
+                 z-index: 10;
+     
+             }
+     
+             .header .nav {
+                 display: flex;
+                 align-items: center;
+                 margin-top: 10px; 
+             }
+     
+             .header .nav a {
+                 color: #fff;
+                 margin-left: 8px;
+                 padding: 10px;
+                 text-decoration: none;
+             }
+             .header .nav a.nav-link {
+                     margin-left: 20px; 
+                 }
+             .header .nav .btn {
+                 background-color: #E50914;
+                 padding: 10px 20px;
+                 border-radius: 5px;
+                 color: #fff;
+                 text-decoration: none;
+             }
+             .search-bar  {
+            display: flex;
+            align-items: center;
+            background-color:#aaa9a93e;;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .search-bar input{
+            border: none;
+            background: none;
+            color: #fff;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-right: 15px;
+            outline: none;
+            width: 300px; 
+        }
+             .promo-banner {    
+                 background-color: #111;
+                 text-align: center;
+                 padding: 10px;
+                 color: #fff;
+             }
+             .promo-banner .btn {
+                 background-color: #E50914;
+                 padding: 10px 20px;
+                 border-radius: 5px;
+                 color: #fff;
+                 text-decoration: none;
+                 margin-left: 10px;
+             }
+             .main-content {
+                 display: flex;
+                 padding: 20px;
+                 margin-top: 80px; 
+             }
+     
+     
+             .left {
+                 flex: 0 0 55%; 
+                 padding-right: 20px; 
+             }
+     
+     
+             .right {
+                 position:relative; 
+                 overflow: hidden;
+                 flex: 0 0 45%; 
+                 height: 600px; 
+             }
+     
+             .image-container {
+                 position: absolute; 
+                 animation: scroll 20s linear infinite;
+                 top:0 
+             }
+     
+     
+             .image-container img {
+                 width: 100%; 
+                 height: 100% ; 
+                 object-fit: cover; 
+             }
+
+             @keyframes scroll {
+                 0% {
+                     transform: translateY(0); 
+                 }
+                 100% {
+                     transform: translateY(-100%);
+                 }
+             }   
+     
+            
+            .main-content .right img {
+        
+                height: auto; 
+                border-radius: 10px;
+            }
+            img{
+                margin-right: 5px;
+            }
+     
+             .main-content h1 {
+                 font-size: 48px;
+                 margin: 0;
+             }
+             .main-content p {
+                 font-size: 18px;
+                 margin: 10px 0;
+             }
+             .main-content .divider {
+                 width: 50px;
+                 height: 3px;
+                 background-color: #E50914;
+                 margin: 20px 0;
+             }
+             .main-content .form {
+                 background-color: #000000;
+                 padding: 20px;
+                 border-radius: 10px;
+             }
+             .main-content .form h2 {
+                 font-size: 24px;
+                 margin: 0 0 20px 0;
+             }
+             .main-content .form .checkbox-group {
+                 display: flex;
+                 flex-direction: column;
+                 gap: 3px;
+             }
+             .main-content .form .checkbox-group label {
+                 display: flex;
+                 align-items: center;
+                 background-color: #444;
+                 padding: 10px;
+                 border-radius: 5px;
+             }
+             .main-content .form .checkbox-group input {
+                 margin-right: 10px;
+             }
+             .main-content .form .btn {
+                 background-color: #E50914;
+                 padding: 10px 20px;
+                 border-radius: 5px;
+                 color: #fff;
+                 text-decoration: none;
+                 display: inline-block;
+                 margin-top: 20px;
+             }
+             .dropdown {
+                 position: relative; 
+             }
+     
+             .dropdown-content {
+                 display: none; 
+                 position: absolute; 
+                 left: 0; 
+                 top: 100%; 
+                 background-color: #333;
+                 min-width: 160px; 
+                 z-index: 1; 
+             }
+     
+             .dropdown-content a {
+                 color: white; 
+                 padding: 12px 16px; 
+                 text-decoration: none; 
+                 display: block; 
+             }
+     
+             .dropdown-content a:hover {
+                 background-color: #575757;
+             }
+             .main-content .form .checkbox-group {
+                 display: flex;
+                 flex-wrap: wrap;
+                 gap: 10px; 
+             }
+     
+             .main-content .form .checkbox-group label {
+                 display: block; 
+                 width: 98%; 
+                 background-color: #444;
+                 padding: 10px;
+                 border-radius: 5px;
+                 background-color: rgba(150, 140, 140, 0.255);
+                 box-sizing: border-box; 
+             }
+
+             .container1 {
+            padding: 50px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #888888;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .content {
+            font-size: 35px;
+            font-weight: bold;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .button-container1 {
+            margin-top: 30px;
+            text-align: center; 
+        }
+        .button1 {
+            background-color: #e50915;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            text-underline-offset: none;
+        }
+
+
+        .card {
+            background-color: #333; 
+            color: white; 
+            padding: 20px; 
+            border-radius: 5px; 
+            min-width: 150px; 
+            flex: 1; 
+            box-sizing: border-box;
+        }
+
+
+        .card-container {
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: flex-start;
+            gap: 10px; 
+            padding: 10px; 
+        }
+
+       
+
+
+
+        .headera {
+            padding: 20px;
+        }
+        .headera h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .header p {
+            font-size: 24px;
+            margin: 10px 0 0;
+        }
+        
+        /*vide*/
+
+        .contenta {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                    position: relative;
+                }
+                .contenta video,img {
+                width: 100%; 
+                height: auto; 
+            }
+
+
+
+            .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 100; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.9); 
+        }
+
+        #thumbnail {
+            width: 100%;
+            height: auto; 
+            display: block; 
+        }
+
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        .teacher-img:hover{
+            transform: scale(1.1);
+            transition: 0.3s;
+            
+        }
+        .teachers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+        }
+        .teacher-card {
+            background-color: rgba(144, 144, 144, 0.23);
+            border-radius: 8px;
+            padding: 15px;
+            width: calc(33.333% - 20px);   
+            display: flex;
+            align-items: center;
+            margin-left: 6px;
+            width: 300px;     
+            height: 170px;
+            margin-top: 27px;
+        }
+        .teacher-card:hover{
+            box-shadow:  1px 1px 15px 4px #f4545475;
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+        .teacher-card .teacher-img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+        }
+        .teacher-card h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #c00712;
+
+        }
+        .teacher-card p {
+            margin: 5px 0 0;
+            color :white;
+            font-size: 14px;
+        }
+        
+        /*vide-end*/
+
+            .text-overlay {
+            position:absolute;
+            right: 20px;
+            transform: translateY(-50%);
+            text-align: left;
+            top: 51cqh;
+        }
+        .text-overlay .badge {
+            background-color: white;
+            color: black;
+            padding: 15px 20px 15px 20px;
+            border-radius: 15px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .text-overlay h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+        .text-overlay h3 {
+            font-size: 14px;
+            margin: 10px 0;
+            font-weight: normal;
+        }
+        .text-overlay p {
+            font-size: 12px;
+            margin: 10px 0;
+        }
+        .text-overlay .btn {
+            background-color: white;
+            color: black;
+            padding: 10px 70px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .container-main {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .title-main {
+            font-size: 34px; /* Adjusted to ensure proper font size */
+            margin-bottom: 35px;
+        }
+
+        .carousel-main {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-track-main {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Smooth transition for carousel movement */
+        }
+
+        .carousel-item-main {
+            min-width: 100%; /* Each item takes full width of carousel */
+            height: 570px; /* Fixed height as per your original code */
+            background-size: cover; /* Ensure background images cover the div */
+            background-position: center; /* Center the background image */
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(239, 233, 233, 0.488); /* Semi-transparent background for buttons */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10; /* Ensure controls are above other content */
+        }
+
+        .carousel-control.left {
+            left: 10px; /* Position the left control */
+        }
+
+        .carousel-control.right {
+            right: 10px; /* Position the right control */
+            height: 10px;
+        }
+
+
+
+        
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 0;
+        }
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #888;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .social a {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .social i {
+            margin-right: 10px;
+            display: inline;
+        }
+
+    
+
+       </style>
+     
+</head>
+<body>
+    <div class="header">
+        <a href="index.html"><img alt="MasterClass Logo"  src="logo.png" style="width: 110px; height: 50px;"/></a>
+        
+        <div class="nav">
+         <div class="dropdown">
+             <button class="browse-button" style="display: flex; align-items: center; border: none; background: #333; color: #fff; padding: 16px; border-radius: 5px; cursor: pointer; outline: none; margin-right: 7px; margin-left:10px;">
+                 <span style="margin-right: 5px;">Browse</span>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="27" viewBox="0 0 24 24" fill="white" style="margin-left: 5px;margin-top:-7px;margin-bottom:-4px">
+                     <path d="M12 21.35l-9.74-9.74a1 1 0 011.41-1.41L12 18.54l8.33-8.34a1 1 0 011.41 1.41L12 21.35z"/>
+                 </svg>
+             </button>
+             
+             <div class="dropdown-content" style="display: none; background-color: #000000;">
+                <div> <a style="width: 250px;" href="#">Acting & Performing Arts </a></div>
+                <div> <a style="width: 250px;" href="#">Arts & Design </a></div>
+                <div> <a style="width: 250px;" href="#">Business & Entrepreneurship</a></div>
+                <div> <a style="width: 250px;" href="#"> Film & TV </a></div>
+                <div> <a style="width: 250px;" href="#"> Food & Drink </a></div>
+                <div> <a style="width: 250px;" href="#"> Games & Digital Media</a></div>
+                <div> <a style="width: 250px;" href="#">Health & Wellness </a></div>
+                <div> <a style="width: 250px;" href="#">Music </a></div>
+                <div> <a style="width: 250px;" href="#">Outdoor Adventures & Events</a></div>
+                <div> <a style="width: 250px;" href="#">Science & Technology </a></div>
+                <div> <a style="width: 250px;" href="#">Community & government </a></div>
+                <div> <button style="text-align: center; color: white;background-color: rgba(137, 134, 134, 0.287); border-top:1;
+                border-bottom:1 ; border-radius: 15px; padding: 15px; padding-right: 70px; padding-left: 60px; align-items: center;margin-left: 15px;border: none;margin-bottom: 9px; hover{background-color:hwit} 
+                ">View All Categories</button></div>
+             
+                
+             </div>
+         </div>
+         <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input placeholder="What do you want to learn today?" type="text"/>
+         </div>
+         <a style="padding-left: 0px;" class="nav-link" href="assignments.html">Assignment</a>
+         <a href="performance.html">Performance </a>
+         <a href="course.html">profile</a>
+         <a style="padding-left: 0px;" class="nav-link" href="posting.html">Post Assignment</a>
+         <a href="signup (2).html">Log In</a>
+         <a class="btn" href="signup (2).html">Sign Up</a>
+     </div>
+</div>
+       <div class="promo-banner">
+        GET UP TO
+        <span style="color: #E50914;">
+         50% OFF
+        </span>
+        PRE-BLACK FRIDAY OFFER ENDS SOON
+        <a class="btn" href="signup (2).html">
+         Sign Up
+        </a>
+       </div>
+      
+       <div class="main-content">
+        <div class="left">
+            <h1>LEARN FROM THE BEST, BE YOUR BEST.</h1>
+            <p>Get unlimited access to thousands of bite-sized lessons.</p>
+            <div class="divider"></div>
+            <div class="form">
+                <h2>What brings you to MasterClass today?</h2>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox"/>
+                        Develop my career or leadership skills
+                    </label>
+                    <label>
+                        <input type="checkbox"/>
+                        Become a better actor, musician, or writer
+                    </label>
+                    <label>
+                        <input type="checkbox"/>
+                        Cultivate a healthy and active lifestyle
+                    </label>
+                    <label>
+                        <input type="checkbox"/>
+                        Learn about science &amp; technology
+                    </label>
+                    <label>
+                        <input type="checkbox"/>
+                        Become a better chef
+                    </label>
+                    <label>
+                        <input type="checkbox"/>
+                        Improve my style, art, or interior design
+                    </label>
+                    <label>
+                        <input type="checkbox"/>
+                        Something else
+                    </label>
+                </div>
+                <a class="btn" href="#">Continue</a>
+            </div>
+        </div>
+        <div class="right">
+            <div class="image-container">
+                <img src="https://adityatekkali.edu.in/Files/images/A5INT00T35.png" alt="">
+                <img src="https://raw.githubusercontent.com/aitamweb/Faculty/main/2023/bsh/A5BSH00T122.png" alt="">
+                <img src="https://aitamsac.in/images/heads/principal.jpg" alt="">
+                <img src="https://raw.githubusercontent.com/aitamweb/Faculty/main/2023/bsh/A5BSH00T51.png" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbQUFi3iosOw0Bl6H7SCw8iybwL5bt9u7Wr5ji9Mlp1I50DZgic7ElW1eREon1wTGVG08&usqp=CAU" alt="">
+                <img src="https://raw.githubusercontent.com/aitamweb/Faculty/main/2023/bsh/A5BSH00T113.png" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQZrCOCYBai9udmO5EJ9i6qH2gMftJ_hPEv-ye5_i2L6R-KP0zuApvBrwkvbMx4p0lcy4&usqp=CAU" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZdflvb2D0TI14c1hN96PwVjo_r6dZI1p4Pw&s" alt="">
+
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIKqKu4b_RHFAmgLyslJhD1EqRK9l97Jw3rw&s" alt="">
+                <img src="https://raw.githubusercontent.com/aitamweb/Faculty/main/2023/it/A5CSE00T58.png" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIisiHObaWiLZpHXihVYdZak1KnVyX7Ox3Gl9d6Q3tYv3yFRgaY5jnAZ27uuzSTwQ93Xs&usqp=CAU" alt="">
+            </div>
+        </div>
+    </div>
+    </div>
+    
+ </div>
+ <div class="container1">
+    <div class="title">What You'll Get</div>
+    <div class="content">
+        Access our full library of 200+ classes<br>
+        Watch on your computer, TV, phone, or tablet<br>
+        Learn on the go with audio-only lessons<br>
+        Download and watch offline (select plans)<br>+
+        Unlock improved learning with class guides<br>
+        Share with family and friends who live with you
+    </div>
+</div>
+
+<div class="container-main">
+    <div style="font-size: 34; margin-bottom: 35px;" class="title-main">Coming Soon</div>
+    <div class="carousel-main">
+        <button style="background-color: rgb(247, 0, 0);" class="carousel-control left"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-track-main">
+           
+            <div class="carousel-item-main" style="background-image: url('https://i.ytimg.com/vi/xD3lSuMUocs/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDAbjV_7sGW1WYt4yLZbmCmNBP9IQ'); height: 700px;">
+                <div class="carousel-text" style="position: absolute; top: 10px; left: 10px; color: white; font-size: 24px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;"></div>
+            </div>
+            <div class="carousel-item-main" style="background-image: url('https://i.ytimg.com/vi/-wzD8Ui8r_s/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCZTdo4qfLxgg11kqZzGtDOK0Q-IQ'); height: 700px;">
+                <div class="carousel-text" style="position: absolute; top: 10px; left: 10px; color: white; font-size: 24px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;"></div>
+            </div>
+            <div class="carousel-item-main" style="background-image: url('https://i.ytimg.com/vi/LmI526Uq0jE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLClDSyN8kECQzmggR6ON3fa1c1fdA'); height: 700px;">
+                <div class="carousel-text" style="position: absolute; top: 10px; left: 10px; color: white; font-size: 24px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;"></div>
+            </div>
+            <div class="carousel-item-main" style="background-image: url('https://i.ytimg.com/vi/eIrMbAQSU34/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCOWrSyd_vbGmoI0GUrW2322TH14w'); height: 700px;">
+                <div class="carousel-text" style="position: absolute; top: 10px; left: 10px; color: white; font-size: 24px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;"></div>
+            </div>
+            <div class="carousel-item-main" style="background-image: url('https://i.ytimg.com/vi/GMFXQu0BZ-U/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDe6QZqxpdvJntA_iWvWn8U99kHFA'); height: 700px;">
+                <div class="carousel-text" style="position: absolute; top: 10px; left: 10px; color: white; font-size: 24px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;"></div>
+            </div>
+            <div class="carousel-item-main" style="background-image: url('https://i.ytimg.com/vi/C6CDKJGxBkQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCe5LHGtgbYQ0KgLiT2qNUc9pIFAQ'); height: 700px;">
+                <div class="carousel-text" style="position: absolute; top: 10px; left: 10px; color: white; font-size: 24px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;"></div>
+            </div>
+            <div class="carousel-item-main" style="background-image: url('https://i.ytimg.com/vi/wfZSumV232w/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDsmLMtwX3b35csgZ5C6BF9p-rZyA'); height: 700px;">
+                <div class="carousel-text" style="position: absolute; top: 10px; left: 10px; color: white; font-size: 24px; background-color: rgba(0, 0, 0, 0.5); padding: 5px;"></div>
+            </div>
+        </div>
+        <button style="background-color: rgb(247, 0, 0);" class="carousel-control right"><i  class="fa-chevron-left"></i></button>
+    </div>
+</div>
+
+
+<div class="teachers">
+    <div style=" width: 100%; padding-top: 100px;" class="section-title">
+        <h2 style="color: white; font-weight: bold">Professors & Lecturers</h2>
+    </div>
+   <a style="text-decoration: none;" href="teacher.html">
+    <div class="teacher-card">
+        <a href="teacher.html"> <img class="teacher-img" alt="Profile picture of Dr. Bob Johnson" height="60" src="https://adityatekkali.edu.in/Files/images/A5INT00T35.png" width="60"/></a>
+        <div>
+         <h3>
+            D. R. RAJ
+         </h3>
+         <p>
+            Assistant Professor
+         </p>
+         <p>
+            M.Tech JNTU Kakinada 2013 First Class with
+            Distinction
+         </p>
+        </div>
+       </div>
+   </a>
+   <a style="text-decoration: none;" href="teacher.html">
+    <div class="teacher-card">
+        <img class="teacher-img" alt="Profile picture of Dr. Carol Lee" height="60" src="https://raw.githubusercontent.com/aitamweb/Faculty/main/2023/it/A5CSE00T58.png" width="60"/>
+        <div>
+         <h3>
+            Sri. V. Ashok Gajapathi Raju
+         </h3>
+         <p>
+            Assistant Professor
+         </p>
+         <p>
+            Ph.D Siksha ‘O’ Anusandhan
+            (Deemed To Be University)
+         </p>
+        </div>
+       </div>
+   </a>
+        <a style="text-decoration: none;" href="teacher.html">
+            <div class="teacher-card">
+                <img class="teacher-img" alt="Profile picture of Dr. David Brown" height="60" src="https://raw.githubusercontent.com/aitamweb/Faculty/main/2023/bsh/A5BSH00T100.png" width="60"/>
+                <div>
+                 <h3>
+                    Dr. P. SUDHEER KUMAR
+                 </h3>
+                 <p>
+                    Associate Professor
+                 </p>
+                 <p>
+                    Ph. D.
+                    (Mathematics)
+                    (Full Time)
+                    ANDHRA UNIVERSITY
+                    2019
+                    Awarded on 25th April 2019.
+                    (Under the guidance of
+                    Prof. G. V. R. Babu )
+                    
+                 </p>
+                </div>
+               </div>
+        </a>
+        <a style="text-decoration: none;" href="teacher.html">
+            <div class="teacher-card">
+                <img class="teacher-img" alt="Profile picture of Dr. Emily White" height="60" src="https://raw.githubusercontent.com/aitamweb/Faculty/main/2023/it/A5INT00T36.png " width="60"/>
+                <div>
+                 <h3>
+                    Birlangi Usharani
+                 </h3>
+                 <p>
+                  Assistant Professor 
+                 </p>
+                 <p>
+                    M. Tech (CSE) JNTUK FIRST class with
+                    distinction
+                 </p>
+                </div>
+               </div>
+        </a>
+        <a style="text-decoration: none;" href="teacher.html">
+            <div class="teacher-card">
+                <img class="teacher-img" alt="Profile picture of Dr. Frank Green" height="60" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQZrCOCYBai9udmO5EJ9i6qH2gMftJ_hPEv-ye5_i2L6R-KP0zuApvBrwkvbMx4p0lcy4&usqp=CAU" width="60"/>
+                <div>
+                 <h3>
+                    Dr.H.Swapna Rekha
+                    <br>Assistant Professor
+                 </h3>
+                 <p>
+                     Assistant Professor <br>
+                     Information Technology
+                 </p>
+                 <p>
+                    Ph. D (I.T) Veer Surendra Sai University of
+                    Technology (VSSUT), Odisha
+                 </p>
+                </div>
+               </div>
+        </a>
+        <a style="text-decoration: none;" href="teacher.html">
+            <div class="teacher-card">
+                <img class="teacher-img" alt="Profile picture of Dr. Alice Smith" height="60" src="https://adityatekkali.edu.in/Files/images/A5INT00T29.png" width="60"/>
+                <div>
+                 <h3>
+                    Smita Rani Sahu
+                 </h3>
+                 <p>
+                    Assistant Professor
+                 </p>
+                 <p>
+                    Ph.D Biju Patnaik University of
+                    Technology Pursuing
+                 </p>
+                </div>
+               </div>
+        </a>
+    
+   </div>
+
+
+
+
+
+<div class="headera">
+    <h1 style="text-align: center;">
+     Meet the world's best.
+    </h1>
+    <p style="text-align: center;">
+     New classes added every month.
+    </p>
+   </div>
+
+
+
+   <div class="contenta">
+    <div class="text-overlay" style="right: 710px;">
+        <div class="badge">New Episodes Tuesdays</div>
+        <h2 style="padding-top: 25; color: #000;">ORIGINAL SERIES</h2>
+        <h3 style="padding-top: 15px;color: #000;">USING ANCIENT WISDOM TO SOLVE MODERN PROBLEMS</h3>
+        <p style="padding-top: 3px; font-size: 16px;color: #000;">
+            Make more meaningful conversation, overcome information overload,<br> and build resilience. On...
+        </p>
+        <button style="margin-top: 10px;" class="btn" id="watchTrailerBtn">
+            Watch Trailer
+        </button>
+    </div>
+</div>
+
+<img id="thumbnail" src="https://i.ytimg.com/vi/LuuJOoESq2Y/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAbPJ-J1qZvXPO5aO2zF7GxGMM-IA" alt="Video Thumbnail" style="width: 100%; height: 100%; display: block;">
+<div id="videoModal" class="modal">
+    <span class="close" id="closeModal">&times;</span>
+    
+    <video width="100%" height="600" controls id="trailerVideo" style="display: none;">
+        <source src="mj_link_4u_Devara_2024_1080p_NF_WEB_DL_x264_Telugu_DD+_5_1_640kb.mkv" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+
+
+
+<div class="footer">
+    <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="#">Articles</a>
+        <a href="#">Sitemap</a>
+        <a href="#">Gifts</a>
+    </div>
+    <div class="footer-column">
+        <h3>About</h3>
+       
+        <a href="#">Careers</a>
+        <a href="#">Newsroom</a>
+        <a href="#">Security</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Social Impact</a>
+        <a href="#">MasterClass at Work</a>
+        <a href="#">Support</a>
+    </div>
+    <div class="footer-column social">
+        <h3>Social</h3>
+        <a href="#"><i class="fab fa-twitter"></i>Twitter</a>
+        <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
+        <a href="#"><i class="fab fa-facebook"></i>Facebook</a>
+        <a href="#"><i class="fab fa-youtube"></i>YouTube</a>
+        <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
+    </div>
+
+
+
+
+
+<script>
+
+
+
+
+
+
+        const track = document.querySelector('.carousel-track-main');
+        const items = Array.from(track.children);
+        const nextButton = document.querySelector('.carousel-control.right');
+        const prevButton = document.querySelector('.carousel-control.left');
+        const itemWidth = items[0].getBoundingClientRect().width;
+
+        let currentIndex = 0;
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < items.length - 1) {
+                currentIndex++;
+                track.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+            }
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                track.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+            }
+        });
+
+
+
+
+
+    var modal = document.getElementById("videoModal");
+
+    var btn = document.getElementById("watchTrailerBtn");
+
+
+    var span = document.getElementById("closeModal");
+
+    var video = document.getElementById("trailerVideo");
+    var thumbnail = document.getElementById("thumbnail");
+
+
+btn.onclick = function() {
+    modal.style.display = "block"; 
+    thumbnail.style.display = "none"; 
+    video.style.display = "block"; 
+    video.play(); 
+}
+
+
+span.onclick = function() {
+    closeModal();
+}
+
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+
+function closeModal() {
+    modal.style.display = "none"; 
+    video.pause(); 
+    video.currentTime = 0; 
+    thumbnail.style.display = "block";
+    video.style.display = "none"; 
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener("keydown", function(event) { 
+        if (event.key === "Escape") { 
+            closeModal(); 
+        } 
+    });
+});
+
+         function toggleDropdown() {
+             const dropdownContent = document.querySelector('.dropdown-content');
+             dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+         }
+     
+    
+         document.querySelector('.browse-button').addEventListener('click', toggleDropdown);
+     
+        
+         window.onclick = function(event) {
+             if (!event.target.matches('.browse-button') && !event.target.closest('.dropdown')) {
+                 const dropdowns = document.getElementsByClassName("dropdown-content");
+                 for (let i = 0; i < dropdowns.length; i++) {
+                     const openDropdown = dropdowns[i];
+                     if (openDropdown.style.display === 'block') {
+                         openDropdown.style.display = 'none';
+                     }
+                 }
+             }
+         }
+     
+         const container = document.querySelector('.image-container');
+        const images = document.querySelectorAll('.image-container img');
+
+        const firstImageClone = images[0].cloneNode(true);
+        container.appendChild(firstImageClone);
+
+    
+        const totalImages = images.length + 1; 
+        const animationDuration = totalImages * 5; 
+        container.style.animationDuration = `${animationDuration}`;
+
+
+
+
+     </script>
+     
+</body>
+</html>
